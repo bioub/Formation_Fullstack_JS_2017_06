@@ -1,0 +1,12 @@
+node_modules
+bower_components
+jspm_packages
+
+*.msi
+*.exe
+
+logs/*
+tmp/*
+.tmp
+~*
+.DS_STORE
