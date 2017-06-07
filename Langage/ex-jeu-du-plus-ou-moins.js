@@ -35,11 +35,11 @@ var jouer = function() {
         console.log('Vous avez déjà joué : ' + essais.join(', '));
     }
 
-    rl.question('Quel est le nombre ? ',  (answer) => {
+    rl.question('Quel est le nombre ? ',  function reponseCb(saisie) {
 
-        var entierSaisi = parseInt(answer);
+        var entierSaisi = parseInt(saisie);
 
-        if (isNaN(answer)) {
+        if (isNaN(entierSaisi)) {
              console.log('Erreur : il faut saisir un nombre');
              return jouer();
         }

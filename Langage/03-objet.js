@@ -13,6 +13,11 @@ Math.sum = function(a, b) {
 
 console.log(Math.sum(1, 2)); // 3
 
+delete Math.sum;
+console.log(typeof Math.sum); // undefined
+
+// Si besoin ponctuel d'un objet
+// on utilise la syntaxe object literal
 var contact = {
     prenom: 'Romain',
     hello: function() {
@@ -35,8 +40,10 @@ Contact.prototype.hello = function() {
 
 var romain = new Contact('Romain');
 console.log(typeof romain); // object
-console.log(romain.prenom); // Romain
-console.log(romain.hello()); // Romain
+console.log(romain.prenom); // Romain (dans l'objet)
+console.log(romain.hello()); // (dans le prototype de Contact)
+console.log(romain.hasOwnProperty('prenom')); // true (dans le prototype de Object)
+console.log(romain.hasOwnProperty('hello')); // false (dans le prototype de Object)
 
 var eric = new Contact('Eric');
 console.log(typeof eric); // object

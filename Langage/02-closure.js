@@ -9,9 +9,9 @@ var logClosure = function(msg) {
 };
 
 var logHello = logClosure('Hello');
-logHello();
-logHello();
-logHello();
+logHello(); // Hello
+logHello(); // Hello
+logHello(); // Hello
 
 for (var i=0; i<3; i++) {
     setTimeout(function() {
@@ -26,9 +26,9 @@ for (var i=0; i<3; i++) {
 // 0 1 2
 
 /*
-var createButton = function() {
+var createButton = function(cptInitial) {
     var btn = document.createElement('button');
-    btn.textContent = 0;
+    btn.textContent = cptInitial;
 
     btn.addEventListener('click', function() {
         btn.textContent++;
