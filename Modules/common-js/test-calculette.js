@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const calc = require('./calculette');
+import calc from "./calculette";
 
 assert.equal(calc.addition(1, 2), 3);
 assert.equal(calc.addition(-1, -3), -4);

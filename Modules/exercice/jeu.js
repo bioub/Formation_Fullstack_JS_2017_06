@@ -19,7 +19,7 @@ class Jeu {
       console.log(`Vous avez déjà joué : ${this._essais.join(', ')}`);
     }
 
-    this._rl.question('Quel est le nombre ? ',  answer => {
+    this._rl.question('Veuillez saisir un nb : ',  answer => {
 
       const entierSaisi = Number.parseInt(answer);
 

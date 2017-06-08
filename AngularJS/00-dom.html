@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        Prénom : <input id="saisie">
+    </div>
+    <p>
+        Bonjour <span id="prenomSaisi"></span> !
+    </p>
+    <script>
+        var inputElt = document.getElementById('saisie');
+        var spanElt = document.getElementById('prenomSaisi');
+
+        inputElt.addEventListener('input', function() {
+            spanElt.textContent = inputElt.value;
+        });
+    </script>
+</body>
+</html>

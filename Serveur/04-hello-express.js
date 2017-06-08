@@ -1,31 +1,53 @@
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 
-app.use((req, res) => {
+// Middleware de log
+app.use(morgan('dev'));
+/*
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+*/
 
-    switch (req.url) {
-        case '/':
-            res.setHeader('Content-type', 'text/html');
-            res.write('<h1>Home page</h1>');
-            break;
-        case '/api/contact/123':
-            res.setHeader('Content-type', 'application/json');
-            res.write( JSON.stringify({
-                prenom: 'Romain'
-            }) );
-            break;
-        case '/goto-google':
-            res.statusCode = 302;
-            res.setHeader('Location', 'http://www.google.fr/');
-            break;
-        default:
-            res.statusCode = 404;
-            res.setHeader('Content-type', 'text/html');
-            res.write('<h1>Page not found</h1>');
+app.use('/api', (req, res, next) => {
+    console.log(req.headers);
+    if (req.headers.authorization === '123') {
+        return next();
     }
 
-    res.end();
+    res.statusCode = 401;
+    res.json({
+        message: 'Bad or missing token'
+    });
+});
+
+app.get('/', (req, res, next) => {
+    res.send('<h1>Home page</h1>');
+});
+
+app.get('/api/contact/123', (req, res, next) => {
+    res.json({
+        prenom: 'Romain'
+    });
+});
+
+app.get('/goto-google', (req, res, next) => {
+    res.redirect('http://www.google.fr/');
+});
+
+app.use('/api', (req, res, next) => {
+   res.statusCode = 404;
+   res.json({
+       message: 'Not Found'
+   })
+});
+
+app.use((req, res, next) => {
+    res.statusCode = 404;
+    res.send('<h1>Not found</h1>')
 });
 
 app.listen(8080, () => {
