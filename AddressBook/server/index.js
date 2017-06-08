@@ -1,10 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 const routesContacts = require('./routes/contacts');
 
 const app = express();
 const port = process.env.PORT || 8080;
+mongoose.connect('mongodb://localhost/addressbook');
 
 // Middleware de log
 app.use(morgan('dev'));
