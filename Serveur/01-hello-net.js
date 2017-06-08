@@ -5,10 +5,10 @@ const server = net.createServer();
 server.on('connection', (socket) => {
     console.log('Client connected');
 
-    socket.write('Hello client');
+    socket.write('Hello client\n');
 
     socket.on('data', (data) => {
-        console.log(data.toString());
+        process.stdout.write(data.toString());
     });
 
     socket.on('close', (data) => {
