@@ -25,46 +25,22 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contacts <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Lister</a></li>
-                        <li><a href="#">Ajouter</a></li>
+                        <li ui-sref-active="active"><a ui-sref="contact-list">Lister</a></li>
+                        <li ui-sref-active="active"><a ui-sref="contact-add">Ajouter</a></li>
                     </ul>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="container" ng-controller="ContactListCtrl">
-    <h2>Liste des contacts</h2>
-    <table class="table table-striped">
-        <tr>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Actions</th>
-        </tr>
-        <tr ng-repeat="contact in contacts">
-            <td>{{contact.prenom}}</td>
-            <td>{{contact.nom}}</td>
-            <td>
-                <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    Afficher
-                </a>
-                <a href="#" class="btn btn-xs btn-warning">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    Modifier
-                </a>
-                <a href="#" class="btn btn-xs btn-danger">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                    Supprimer
-                </a>
-            </td>
-        </tr>
-    </table>
+<div class="container" ui-view>
+
 
 </div>
 <script src="/node_modules/jquery/dist/jquery.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="/node_modules/angular/angular.js"></script>
+<script src="/node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
 <script src="app/contact-list/contact-list.controller.js"></script>
 <script src="app/contact-add/contact-add.controller.js"></script>
 <script src="app/app.module.js"></script>
