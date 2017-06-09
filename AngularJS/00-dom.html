@@ -12,12 +12,18 @@
         Bonjour <span id="prenomSaisi"></span> !
     </p>
     <script>
-        var inputElt = document.getElementById('saisie');
-        var spanElt = document.getElementById('prenomSaisi');
+        // Module IIFE
+        // Immediately Invoked Function Expression
+        (function () {
+            'use strict';
 
-        inputElt.addEventListener('input', function() {
-            spanElt.textContent = inputElt.value;
-        });
+            var inputElt = document.getElementById('saisie');
+            var spanElt = document.getElementById('prenomSaisi');
+
+            inputElt.addEventListener('input', function() {
+                spanElt.textContent = inputElt.value;
+            });
+        }());
     </script>
 </body>
 </html>
