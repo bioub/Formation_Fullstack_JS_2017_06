@@ -22,6 +22,12 @@ app.use('/api', (req, res, next) => {
     });
 });
 
+// Middleware 500 de l'API REST
+app.use('/api', (err, req, res, next) => {
+    res.statusCode = 500;
+    res.json(err);
+});
+
 app.listen(port, () => {
    console.log(`App started on port ${port}`);
 });

@@ -9,6 +9,9 @@ const routes = new Router();
 // Liste des contacts
 routes.get('/', (req, res, next) => {
     Contact.find('prenom nom', (err, contacts) => {
+        if (err) {
+            return next(err);
+        }
         res.json(contacts);
     });
 });
@@ -18,6 +21,10 @@ routes.post('/', bodyParser.json());
 routes.post('/', (req, res, next) => {
     const contact = new Contact(req.body);
     contact.save((err, contact) => {
+        if (err) {
+            return next(err);
+        }
+
         res.statusCode = 201;
         res.json(contact);
     });
@@ -26,6 +33,14 @@ routes.post('/', (req, res, next) => {
 // Détails d'un contact
 routes.get('/:id', (req, res, next) => {
     Contact.findById((err, contact) => {
+        if (err) {
+            return next(err);
+        }
+
+        if (!contact) {
+            return next();
+        }
+
         res.json(contact);
     });
 });
@@ -33,6 +48,12 @@ routes.get('/:id', (req, res, next) => {
 // Remplacer un contact
 routes.put('/:id', (req, res, next) => {
     Contact.findByIdAndUpdate(req.params.id, req.body, (err, contact) => {
+        if (err) {
+            return next(err);
+        }
+        if (!contact) {
+            return next();
+        }
         res.json(contact);
     });
 });
@@ -40,7 +61,13 @@ routes.put('/:id', (req, res, next) => {
 // Supprimer un contact
 routes.delete('/:id', (req, res, next) => {
     Contact.findByIdAndRemove(req.params.id, (err, contact) => {
-       res.json(contact);
+        if (err) {
+            return next(err);
+        }
+        if (!contact) {
+            return next();
+        }
+        res.json(contact);
     });
 });
 

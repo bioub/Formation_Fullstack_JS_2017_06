@@ -11,7 +11,7 @@ app.use((req, res, next) => {
     next();
 });
 */
-
+/*
 app.use('/api', (req, res, next) => {
     console.log(req.headers);
     if (req.headers.authorization === '123') {
@@ -23,7 +23,7 @@ app.use('/api', (req, res, next) => {
         message: 'Bad or missing token'
     });
 });
-
+*/
 app.get('/', (req, res, next) => {
     res.send('<h1>Home page</h1>');
 });
