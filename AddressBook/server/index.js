@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const routesContacts = require('./routes/contacts');
 
@@ -10,6 +11,10 @@ mongoose.connect('mongodb://localhost/addressbook');
 
 // Middleware de log
 app.use(morgan('dev'));
+
+// Middleware qui héberge les fichiers statiques
+app.use(express.static(path.resolve(__dirname + '/../client')));
+app.use('/node_modules', express.static(path.resolve(__dirname + '/../node_modules')));
 
 // Routes
 app.use('/api/contacts', routesContacts);
