@@ -32,7 +32,7 @@ routes.post('/', (req, res, next) => {
 
 // Détails d'un contact
 routes.get('/:id', (req, res, next) => {
-    Contact.findById((err, contact) => {
+    Contact.findById(req.params.id, (err, contact) => {
         if (err) {
             return next(err);
         }

@@ -42,7 +42,7 @@
 <script src="/node_modules/angular/angular.js"></script>
 
 <script src="app/contact-list/contact-list.controller.js"></script>
-<script src="app/contact-add/contact-add.controller.js"></script>
+<script src="app/contact-add/contact-show.controller.js"></script>
 <script src="app/app.module.js"></script>
 </body>
 </html>
