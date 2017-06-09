@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app.module">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    </head>
+</head>
 <body>
 <nav class="navbar navbar-default">
     <div class="container">
@@ -33,7 +33,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
+<div class="container" ng-controller="ContactListCtrl">
     <h2>Liste des contacts</h2>
     <table class="table table-striped">
         <tr>
@@ -41,27 +41,9 @@
             <th>Nom</th>
             <th>Actions</th>
         </tr>
-        <tr>
-            <td>Jean</td>
-            <td>Dupont</td>
-            <td>
-                <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    Afficher
-                </a>
-                <a href="#" class="btn btn-xs btn-warning">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    Modifier
-                </a>
-                <a href="#" class="btn btn-xs btn-danger">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                    Supprimer
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>Eric</td>
-            <td>Martin</td>
+        <tr ng-repeat="contact in contacts">
+            <td>{{contact.prenom}}</td>
+            <td>{{contact.nom}}</td>
             <td>
                 <a href="#" class="btn btn-xs btn-info">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -83,5 +65,8 @@
 <script src="/node_modules/jquery/dist/jquery.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="/node_modules/angular/angular.js"></script>
+<script src="app/contact-list/contact-list.controller.js"></script>
+<script src="app/contact-add/contact-add.controller.js"></script>
+<script src="app/app.module.js"></script>
 </body>
 </html>

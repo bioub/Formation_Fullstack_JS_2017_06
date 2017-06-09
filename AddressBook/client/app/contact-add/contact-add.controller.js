@@ -1,3 +1,5 @@
-/**
- * Created by Administrateur on 09/06/2017.
- */
+(function() {
+    'use strict';
+
+    var module = angular.module('', []);
+}());
