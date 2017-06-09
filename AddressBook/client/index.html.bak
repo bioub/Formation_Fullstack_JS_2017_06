@@ -40,7 +40,7 @@
 <script src="/node_modules/jquery/dist/jquery.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="/node_modules/angular/angular.js"></script>
-<script src="/node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+
 <script src="app/contact-list/contact-list.controller.js"></script>
 <script src="app/contact-add/contact-add.controller.js"></script>
 <script src="app/app.module.js"></script>

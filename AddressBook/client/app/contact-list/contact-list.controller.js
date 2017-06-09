@@ -8,6 +8,14 @@
            .then(function(res) {
                $scope.contacts = res.data;
            });
+
+       $scope.supprimer = function(contact) {
+            $http.delete('/api/contacts/' + contact._id)
+                .then(function() {
+                    var i = $scope.contacts.indexOf(contact);
+                    $scope.contacts.splice(i, 1);
+                });
+       };
     });
 
     /*
